@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="static/css/imagenes/icono.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <title>Signa Code Bank</title>
+    <style>
+        /* Estilo para el fondo del Hero */
+        .hero-background {
+            background: url('{{ url_for('static', filename='css/imagenes/cajero.jpg') }}') no-repeat center center;
+            background-size: cover; /* Asegura que la imagen cubra todo el área */
+            height: 100vh; /* Ocupa toda la altura de la pantalla */
+            width: 100vw; /* Ocupa todo el ancho de la pantalla */
+            display: flex;
+            justify-content: center; /* Centra el contenido horizontalmente */
+            align-items: center; /* Centra el contenido verticalmente */
+            position: relative;
+        }
+        
+        /* Estilo para el contenido del Hero */
+        .hero-content {
+            text-align: center;
+            color: #0000;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Botones */
+        .btn {
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .btn.primary {
+            background-color: #FFD700;
+            color: #000;
+        }
+
+        .btn.primary:hover {
+            background-color: #FFB800;
+        }
+
+        .btn.secondary {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .btn.secondary:hover {
+            background-color: #333;
+        }
+
+        .btn.danger {
+            background-color: #D32F2F;
+            color: #fff;
+        }
+
+        .btn.danger:hover {
+            background-color: #B71C1C;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            
+            <h1>Signa Code Bank</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#servicios">Nuestros Servicios</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero-background">
+        <div class="hero-content">
+            <img src="static/css/imagenes/signa.png" alt="Descripción de la imagen" width="250" height="250" >
+            <div class="popo">
+                <h2 class="pipi"> <strong> Bienvenido a Signa Code Bank </strong> </h2>
+                <p class="pipi"> <strong> La banca del futuro, diseñada para ofrecerte seguridad, rapidez y facilidad. </strong></p>
+            </div>
+            <div class="hero-buttons">
+                {% if 'numero_cuenta' in session %}
+                    <a href="{{ url_for('consultar_saldo') }}" class="btn primary">Consultar Saldo</a><br>
+                    <a href="{{ url_for('transferir') }}" class="btn secondary">Transferir</a><br>
+                    <a href="{{ url_for('canjear_puntos') }}" class="btn primary">Canjear puntos</a><br>
+                    <form action="{{ url_for('cerrar_sesion') }}" method="POST">
+                        <button type="submit" class="btn danger">Cerrar sesión</button>
+                    </form>
+                {% else %}
+                    <a href="{{ url_for('crear_cuenta') }}" class="btn primary">Crear Cuenta</a><br>
+                    <a href="{{ url_for('iniciar_sesion') }}" class="btn secondary">Iniciar Sesión</a><br>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Servicios -->
+    <section id="servicios">
+        <div class="container">
+            <h2>Servicios Principales</h2>
+            <div class="service-cards">
+                <div class="service-card">
+                    <h3>Cuenta de Ahorros</h3>
+                    <p>Abre tu cuenta y empieza a ahorrar con beneficios exclusivos para ti.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Transferencias Internacionales</h3>
+                    <p>Envía dinero a cualquier parte del mundo de manera rápida y segura.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Tarjetas de Crédito</h3>
+                    <p>Obtén tu tarjeta de crédito Signa y disfruta de descuentos y promociones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section id="beneficios">
+        <div class="container">
+            <h2>Beneficios Exclusivos</h2>
+            <ul>
+                <li>Acceso a tu cuenta las 24 horas, los 7 días de la semana.</li>
+                <li>Seguridad avanzada con autenticación de dos factores.</li>
+                <li>Promociones y descuentos con nuestros aliados comerciales.</li>
+                <li>Canjea puntos por premios y descuentos.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonios">
+        <div class="container">
+            <h2>Lo que dicen nuestros clientes</h2>
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <p>"Signa Code Bank ha facilitado todas mis transacciones, ¡es la mejor opción!"</p>
+                    <h4>- Juan Pérez</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"El soporte es increíble, siempre están listos para ayudarme con cualquier consulta."</p>
+                    <h4>- María López</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Nunca me había sentido tan seguro usando mi tarjeta de crédito. Totalmente recomendado."</p>
+                    <h4>- Andrés Gómez</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <footer id="contacto">
+        <div class="container">
+            <h2>Contacto</h2>
+            <p>¿Tienes alguna duda? Contáctanos y estaremos encantados de ayudarte.</p>
+            <form>
+                <input type="text" placeholder="Tu nombre" required><br>
+                <input type="email" placeholder="Tu correo electrónico" required><br>
+                <textarea placeholder="Tu mensaje" required></textarea><br>
+                <button type="submit" class="btn primary">Enviar</button>
+            </form>
+            <p>&copy; 2024 Signa Code Bank | <a href="mailto:soporte@signacode.com">soporte@signacode.com</a></p>
+        </div>
+    </footer>
+</body>
+</html>

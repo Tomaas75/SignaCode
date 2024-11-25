@@ -1,0 +1,192 @@
+/* Reseteo de márgenes y padding para un diseño consistente */ 
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+} 
+
+/* Fondo general y tipografía */ 
+body { 
+    background: linear-gradient(to right, #D1D1D1, #F7F7F7); /* De gris claro a blanco claro */ 
+    font-family: 'Poppins', sans-serif; 
+    color: #333; /* Gris antracita para el texto */ 
+    line-height: 1.6; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    align-items: center; 
+    min-height: 100vh; 
+    padding-bottom: 40px; 
+} 
+
+/* Contenedor principal */ 
+.main-container { 
+    max-width: 900px; 
+    margin: 30px auto; 
+    padding: 30px; 
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro para contraste */ 
+    border-radius: 15px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); 
+    text-align: center; 
+} 
+
+/* Estilo del título */ 
+h2 { 
+    font-size: 2.5rem; /* Tamaño mayor para el título */ 
+    margin-bottom: 20px; 
+    color: #F7F7F7; /* Blanco claro para el título */ 
+} 
+
+/* Tabla de transacciones */ 
+.transactions-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-bottom: 30px; 
+} 
+
+.transactions-table th, .transactions-table td { 
+    padding: 15px; 
+    border: 1px solid #FFD700; /* Borde amarillo brillante */ 
+    text-align: center; 
+    font-size: 1rem; 
+} 
+
+/* Estilo para las celdas de la tabla */
+.transactions-table th { 
+    background: #FFD700; /* Amarillo brillante para encabezados */
+    color: #333; /* Gris antracita para el texto de los encabezados */
+    font-weight: 600; 
+} 
+
+.transactions-table td { 
+    background: #000; /* Fondo negro para las celdas */
+    color: #FFF; /* Texto blanco para contraste */
+} 
+
+/* Filas alternadas */
+.transactions-table tr:nth-child(even) td { 
+    background: #111; /* Negro más suave para filas pares */
+} 
+
+/* Hover en las filas de la tabla */
+.transactions-table tr:hover { 
+    background: #444; /* Gris oscuro en hover */
+    color: #FFF; /* Blanco para el texto en hover */
+} 
+
+/* Estilo del mensaje de alerta */ 
+.alert { 
+    background-color: #f8d7da; 
+    color: #721c24; 
+    padding: 10px; 
+    margin-top: 20px; 
+    border-radius: 5px; 
+    border: 1px solid #f5c6cb; 
+} 
+
+/* Estilo del botón para volver */ 
+.btn-link { 
+    display: inline-block; 
+    margin-top: 20px; 
+    padding: 12px 24px; 
+    background: #FFD700; /* Amarillo más vibrante */
+    color: #333; /* Gris oscuro */
+    text-decoration: none; 
+    font-size: 1.1rem; 
+    border-radius: 5px; 
+    transition: background 0.3s ease; 
+    border: 2px solid #FFD700; /* Borde amarillo más vibrante */
+}
+
+/* Hover en el botón de enlace */
+.btn-link:hover { 
+    background: #FFCC00; /* Amarillo brillante en hover */
+    color: #333; 
+} 
+
+/* Adaptabilidad para pantallas más pequeñas */ 
+@media (max-width: 768px) { 
+    .main-container { 
+        padding: 20px; 
+    } 
+    .transactions-table { 
+        font-size: 0.9rem; 
+    } 
+    h2 { 
+        font-size: 1.8rem; 
+    } 
+} 
+
+/* Estilos del Footer */ 
+footer { 
+    background-color: #333; /* Gris oscuro */ 
+    color: white; 
+    text-align: center; 
+    padding: 40px 20px; 
+    font-size: 1.1em; 
+    font-weight: 600; 
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1); 
+    width: 100%; 
+    position: relative; 
+    margin-top: auto; 
+} 
+
+/* Para que el contenido de la página se expanda correctamente */ 
+.container, .intro, .buttons, .info, .form-container { 
+    margin-bottom: auto; 
+} 
+
+/* Otros estilos de contenedor (si tienes más contenedores de contenido) */ 
+.container { 
+    width: 90%; 
+    max-width: 950px; 
+    margin: 30px auto; 
+    padding: 40px; 
+    background-color: #FFF; /* Fondo blanco */ 
+    border-radius: 10px; 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease-in-out; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+} 
+
+/* Estilos para el pie de página (footer) */ 
+.page-footer { 
+    background-color: #333; /* Gris oscuro */ 
+    color: #F7F7F7; /* Blanco claro */ 
+    padding: 15px 20px; 
+    text-align: center; 
+    width: 100%; 
+    position: relative; 
+    margin-top: 30px;  /* Reducimos el espacio superior */ 
+} 
+
+.footer-content { 
+    max-width: 800px; 
+    margin: 0 auto; 
+} 
+
+.footer-content p { 
+    font-size: 1rem; 
+    margin: 5px; 
+} 
+
+/* Enlace dentro del Footer */ 
+.footer-link { 
+    display: inline-block; 
+    padding: 12px 25px; 
+    background-color: #FFD700; /* Amarillo más vibrante */
+    color: white; 
+    font-size: 1.2rem; 
+    border-radius: 25px; 
+    text-decoration: none; 
+    margin-top: 20px; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+} 
+
+.footer-link:hover { 
+    background-color: #FFCC00; /* Amarillo brillante en hover */
+    transform: scale(1.05); 
+}

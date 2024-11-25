@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/crear_cuenta.css') }}">
+    <link rel="icon" href="static/css/imagenes/icono.ico" type="image/x-icon">
+    <title>Ingresar Dinero</title>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Ingresar Dinero</h2>
+        
+        <form action="{{ url_for('ingresar') }}" method="POST">
+            <label for="monto">Monto a Ingresar:</label>
+            <input type="number" name="monto" id="monto" step="0.01" min="0" required><br><br>
+            
+            <button type="submit">Ingresar</button>
+        </form>
+        
+        {% if mensaje %}
+            <p class="mensaje">{{ mensaje }}</p>
+        {% endif %}
+
+        <p>Saldo actual: {{ saldo }}</p>
+        
+        <a href="{{ url_for('bienvenida') }}" class="btn-link">Volver a la bienvenida</a>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 <strong>Signa-Code</strong>. Todos los derechos reservados.</p>
+            <p>Aplicativo bancario móvil para la gestión segura y eficiente de tus finanzas.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+</body>
+</html>

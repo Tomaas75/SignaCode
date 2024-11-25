@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" href="static/css/imagenes/icono.ico" type="image/x-icon">
+    <title>Menú Principal</title>
+
+</head>
+<body>
+    <header>
+        <h1>Bienvenido, {{ numero_cuenta }}</h1>
+    </header>
+
+    <div class="container">
+        <form method="POST">
+            <h2>Seleccione una opción:</h2>
+            <label>1. Consultar Saldo</label><br>
+            <label>2. Retirar</label><br>
+            <label>3. Transferir</label><br>
+            <label>4. Consultar Puntos ViveColombia</label><br>
+            <label>5. Canjear Puntos ViveColombia</label><br>
+            <label>6. Cerrar Sesión</label><br>
+
+            <input type="number" name="opcion" min="1" max="6" required><br><br>
+
+            <!-- Si es necesario, agrega campos adicionales según la opción -->
+            {% if saldo %}
+            <p>Saldo actual: {{ saldo }}</p>
+            {% endif %}
+            
+            {% if opcion == '2' %}
+            <label>Monto a retirar:</label>
+            <input type="number" name="monto" step="0.01">
+            {% endif %}
+            
+            {% if opcion == '3' %}
+            <label>Cuenta destino:</label>
+            <input type="text" name="cuenta_destino">
+            <label>Monto a transferir:</label>
+            <input type="number" name="monto" step="0.01">
+            {% endif %}
+            
+            {% if opcion == '5' %}
+            <label>Cantidad de puntos a canjear:</label>
+            <input type="number" name="puntos">
+            {% endif %}
+            
+            <input type="submit" value="Enviar">
+        </form>
+
+        <a href="{{ url_for('login') }}">Cerrar sesión</a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 <strong>Signa-Code</strong>. Todos los derechos reservados.</p>
+            <p>Aplicativo bancario móvil para la gestión segura y eficiente de tus finanzas.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+
+
+
+</body>
+</html>

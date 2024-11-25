@@ -1,0 +1,107 @@
+<!DOCTYPE html> 
+
+<html lang="es"> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Historial de Transacciones</title> 
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/historial.css') }}"> 
+
+    <link rel="icon" href="static/css/imagenes/icono.ico" type="image/x-icon"> 
+
+</head> 
+
+<body> 
+
+    <div class="main-container"> 
+
+        <h2>Historial de Transacciones</h2> 
+
+     
+
+    {% if mensaje %} 
+
+        <div class="alert"> 
+
+            <p>{{ mensaje }}</p> 
+
+        </div> 
+
+    {% else %} 
+
+        <table class="transactions-table"> 
+
+            <thead> 
+
+                <tr> 
+
+                    <th>Tipo de Transacción</th> 
+
+                    <th>Fecha</th> 
+
+                    <th>Cuenta Origen</th> 
+
+                    <th>Cuenta Destino</th> 
+
+                    <th>Monto</th> 
+
+                    <th>Saldo Final Emisor</th> 
+
+                    <th>Saldo Final Receptor</th> 
+
+                </tr> 
+
+            </thead> 
+
+            <tbody> 
+
+                {% for trans in historial %} 
+
+                <tr> 
+
+                    <td>{{ trans.tipo }}</td> 
+
+                    <td>{{ trans.fecha }}</td> 
+
+                    <td>{{ trans.cuenta_origen }}</td> 
+
+                    <td>{{ trans.cuenta_destino }}</td> 
+
+                    <td>{{ trans.monto }}</td> 
+
+                    <td>{{ trans.saldo_final_emisor }}</td> 
+
+                    <td>{{ trans.saldo_final_receptor }}</td> 
+
+                </tr> 
+
+                {% endfor %} 
+
+            </tbody> 
+
+        </table> 
+
+    {% endif %} 
+
+ 
+
+        <div class="text-center"> 
+
+            <a href="{{ url_for('bienvenida') }}" class="btn-link">Volver al inicio</a> 
+
+        </div> 
+
+    </div> 
+
+ 
+
+    <!-- No es necesario el script de Bootstrap, ya que no estamos usando funcionalidades JS de Bootstrap --> 
+
+</body> 
+
+</html> 

@@ -1,0 +1,108 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body y fondo */
+body.galactic-background {
+    background: linear-gradient(45deg, rgba(211, 211, 211, 0.9), rgba(52, 52, 52, 0.8)); /* Fondo con gris claro y gris antracita */
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Contenedor principal */
+.transaction-container {
+    background-color: #F9F9F9; /* Blanco claro */
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+    margin: 20px auto 50px;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Título principal */
+.transaction-header {
+    font-size: 1.8rem;
+    color: #343434;  /* Gris antracita */
+    background-color: #F7C600;  /* Dorado suave */
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos comunes para botones y enlaces */
+a.golden-button, button {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    background-color: #F7C600; /* Dorado suave */
+    color: #343434;  /* Gris antracita */
+    border: none;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 15px auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+/* Efecto hover y active para botones y enlaces */
+a.golden-button:hover, button:hover {
+    background-color: #343434;  /* Gris antracita */
+    color: #F7C600;  /* Dorado suave */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+a.golden-button:active, button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para pie de página */
+.space-footer {
+    width: 100%;
+    text-align: center;
+    background-color: #343434; /* Gris antracita */
+    color: #fff;
+    padding: 20px;
+    font-size: 0.9rem;
+    position: relative;
+    bottom: 0;
+}
+
+/* Texto adicional en el footer */
+.space-footer p {
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+/* Media Queries para móviles */
+@media (max-width: 768px) {
+    body { padding: 10px; }
+    .transaction-container { padding: 20px; }
+    .transaction-header { font-size: 1.6rem; }
+    a.golden-button, button { font-size: 1rem; }
+}

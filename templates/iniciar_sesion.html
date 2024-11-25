@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/crear_cuenta.css') }}">
+    <link rel="icon" href="static/css/imagenes/icono.ico" type="image/x-icon">
+    <title>Iniciar Sesión</title>
+</head>
+<body>
+    <!-- Contenedor del formulario de inicio de sesión -->
+    <img src="static/css/imagenes/signa.png" alt="Descripción de la imagen" width="250" height="250" >
+    <div class="form-container">
+        <h2>Iniciar Sesión</h2>
+        <form action="/iniciar_sesion" method="POST">
+            <!-- Campo para el número de cuenta -->
+            <label for="numero_cuenta">Número de cuenta:</label>
+            <input type="text" name="numero_cuenta" id="numero_cuenta" required placeholder="Ingresa tu número de cuenta">
+
+            <!-- Campo para la contraseña -->
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" name="contrasena" id="contrasena" required placeholder="Ingresa tu contraseña">
+
+            <!-- Botón para iniciar sesión -->
+            <button type="submit">Iniciar sesión</button>
+        </form>
+
+        <!-- Mensaje de error si existe -->
+        <p>{{ mensaje }}</p>
+
+        <!-- Mensaje adicional antes del enlace para crear cuenta -->
+        <p class="mensaje-registro">¿Aún no tienes cuenta?</p>
+
+        <!-- Enlace para redirigir a la página de creación de cuenta -->
+        <div class="registro">
+            <a href="{{ url_for('crear_cuenta') }}" class="btn-link">Crear Cuenta</a>
+        </div>
+
+        <!-- Nuevo botón para redirigir a la bienvenida -->
+        <br><br>
+        <button onclick="window.location.href='{{ url_for('home') }}'">Volver a Bienvenida</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 <strong>Signa-Code</strong>. Todos los derechos reservados.</p>
+            <p>Aplicativo bancario móvil para la gestión segura y eficiente de tus finanzas.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+
+</body>
+</html>

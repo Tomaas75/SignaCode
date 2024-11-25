@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="icon" href="static/css/imagenes/icono.ico" type="image/x-icon">
+    <title>Bienvenido</title>
+</head>
+<body>
+    <header>
+        <div class="welcome-box">
+            <h1>Bienvenido, {{ cuenta.nombre_usuario }}</h1>
+            <!-- Nombre del usuario -->
+        </div>
+    </header>
+    
+    <div class="main-container">
+        <!-- Información del usuario -->
+        <div class="user-info">
+            <h2>Mi Información </h2> 
+            <p><strong>Nombre:</strong> {{ cuenta.nombre_usuario }}</p>
+            <p><strong>Correo:</strong> {{ cuenta.correo }}</p>
+            <p><strong>Edad:</strong> {{ cuenta.edad }}</p>
+            <p><strong>Tipo de documento:</strong> {{ cuenta.tipo_documento }}</p>
+            <p><strong>Número de teléfono:</strong> {{ cuenta.numero_telefono }}</p>
+            <p><strong>Número de documento:</strong> {{ cuenta.numero_documento }}</p>
+        </div>
+
+        <!-- Opciones de usuario (ya visibles, no se necesitan deslizantes) -->
+        <div class="options-container">
+            <ul class="options">
+                <li><a href="{{ url_for('consultar_saldo') }}">Consultar Saldo</a></li>
+                <li><a href="{{ url_for('transferir') }}">Transferir Dinero</a></li>
+                <li><a href="{{ url_for('retirar') }}">Retirar Dinero</a></li>
+                <li><a href="{{ url_for('consultar_puntos') }}">Puntos ViveColombia</a></li>
+                <li><a href="{{ url_for('historial_transacciones') }}">Historial de Transacciones</a></li>
+                <li><a href="{{ url_for('ingresar') }}">Ingresar dinero</a></li>
+                <form action="{{ url_for('cerrar_sesion') }}" method="POST">
+                    <button type="submit" class="btn danger">Cerrar sesión</button>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 <strong>Signa-Code</strong>. Todos los derechos reservados.</p>
+            <p>Aplicativo bancario móvil para la gestión segura y eficiente de tus finanzas.</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+</body>
+</html> 

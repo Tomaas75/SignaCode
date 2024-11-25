@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/crear_cuenta.css') }}">
+    <link rel="icon" href="static/css/imagenes/icono.ico" type="image/x-icon">
+    <title>Transferir Dinero</title>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Transferir Dinero</h2>
+        
+        <form action="{{ url_for('transferir') }}" method="POST">
+            <label for="numero_cuenta_destino">Número de Cuenta Destino:</label>
+            <input type="text" name="numero_cuenta_destino" id="numero_cuenta_destino" required><br><br>
+            
+            <label for="monto">Monto a Transferir:</label>
+            <input type="number" name="monto" id="monto" step="0.01" min="0" required><br><br>
+            
+            <button type="submit">Transferir</button>
+        </form>
+        
+        {% if mensaje %}
+            <p class="mensaje">{{ mensaje }}</p>
+        {% endif %}
+
+        <a href="{{ url_for('index') }}" class="btn-link">Volver a la bienvenida</a>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 <strong>Signa-Code</strong>. Todos los derechos reservados.</p>
+            <p>Aplicativo bancario móvil para la gestión segura y eficiente de tus finanzas.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+/* General */
+body {
+    font-family: 'Poppins', sans-serif; /* Fuente moderna y amigable */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, rgba(211, 211, 211, 0.9), rgba(52, 52, 52, 0.8)); /* Fondo gris claro con un toque de gris antracita */
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    padding-bottom: 40px;
+}
+
+/* Contenedor principal */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(211, 211, 211, 0.2), rgba(52, 52, 52, 0.2)); /* Fondo gris suave */
+    border-radius: 10px;
+}
+
+/* Recorte del "Bienvenido" */
+.welcome-box {
+    width: 100%;
+    text-align: center;
+    background-color: #F9F9F9;  /* Blanco claro */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: bold;
+    color: #343434;  /* Gris antracita */
+    border-bottom: 4px solid #F7C600;  /* Toque dorado suave */
+}
+
+/* Información del usuario */
+.user-info {
+    width: 45%;
+    padding: 30px;  /* Aumentamos el padding para mayor confort */
+    background-color: #F9F9F9; /* Blanco claro */
+    border: 3px solid rgba(52, 52, 52, 0.8); /* Borde gris antracita */
+    border-radius: 10px;
+    color: #343434;  /* Gris antracita */
+    height: 470px; /* Alto fijo */
+}
+
+.user-info:hover {
+    transform: translateY(-5px); /* Eleva el cuadro al pasar el ratón */
+}
+
+.user-info h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: bold;
+    color: #343434;  /* Gris antracita para los títulos */
+    border-bottom: 2px solid #F7C600; /* Línea dorada debajo del título */
+}
+
+.user-info p {
+    font-size: 1.2em; /* Aumentamos el tamaño de texto */
+    margin-bottom: 15px;
+}
+
+/* Opciones de usuario visibles */
+.options-container {
+    width: 45%;
+    padding: 20px;
+}
+
+.options {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;  /* Botones en columna */
+    gap: 15px;  /* Espacio entre los botones */
+}
+
+.options li {
+    width: 100%;
+}
+
+.options li a {
+    text-decoration: none;
+    color: white;
+    background-color: #343434;  /* Gris antracita */
+    padding: 20px;
+    display: block;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-top: 2px solid #F7C600; /* Borde dorado suave */
+}
+
+.options li a:hover {
+    background-color: #2c2f33; /* Gris más oscuro */
+    transform: translateY(-5px); /* Levanta el botón al pasar el ratón */
+    border-top: 2px solid #F7C600; /* Mantiene el borde dorado */
+}
+
+.options li a:active {
+    background-color: #232526; /* Gris aún más oscuro */
+    transform: translateY(0); /* Vuelve a la posición normal */
+}
+
+/* Botón de Cerrar Sesión */
+.btn.danger {
+    background-color: #e74c3c; /* Rojo suave para el fondo */
+    color: white; /* Texto blanco */
+    border: none;
+    padding: 12px 30px; /* Un poco más grande para hacerlo más visible */
+    font-size: 1.2em; /* Tamaño de fuente adecuado */
+    font-weight: bold;
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a puntero */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+    width: 100%; /* Hace que ocupe todo el ancho del contenedor */
+    text-align: center;
+}
+
+/* Efecto cuando el ratón pasa sobre el botón */
+.btn.danger:hover {
+    background-color: #c0392b; /* Rojo más oscuro */
+    transform: translateY(-5px); /* Eleva el botón */
+}
+
+/* Efecto cuando el botón está presionado */
+.btn.danger:active {
+    background-color: #9b2e2e; /* Rojo aún más oscuro cuando se hace clic */
+    transform: translateY(0); /* Vuelve a la posición normal */
+}
+
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo negro suave */
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    border-top: 3px solid #F7C600; /* Borde dorado en el footer */
+}
+
+footer .footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Asegura que el footer se quede al final de la página */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
+/* Para que el formulario y el footer no se superpongan */
+form, footer {
+    margin-top: 20px;
+}

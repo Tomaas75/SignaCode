@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/crear_cuenta.css') }}">
+    <link rel="icon" href="static/css/imagenes/icono.ico" type="image/x-icon">
+    <title>Crear Cuenta</title>
+</head>
+<body>
+    <img src="static/css/imagenes/signa.png" alt="Descripción de la imagen" width="250" height="250" >
+    <div class="form-container">
+        <h2>Crear Cuenta</h2>
+        <form action="{{ url_for('crear_cuenta') }}" method="POST">
+            <!-- Nombre Completo -->
+            <label for="nombre_completo">Nombre Completo:</label>
+            <input type="text" name="nombre_completo" id="nombre_completo" required><br><br>
+
+            <!-- Correo Electrónico -->
+            <label for="correo_electronico">Correo Electrónico:</label>
+            <input type="email" name="correo_electronico" id="correo_electronico" required><br><br>
+
+            <!-- Contraseña -->
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" name="contrasena" id="contrasena" required><br><br>
+
+            <!-- Edad -->
+            <label for="edad">Edad:</label>
+            <input type="number" name="edad" id="edad" min="18" required><br><br>
+
+            <!-- Tipo de Documento (Desplegable) -->
+            <label for="tipo_documento">Tipo de Documento:</label>
+            <select name="tipo_documento" id="tipo_documento" required>
+                <option value="cc">Cédula de Ciudadanía (CC)</option>
+                <option value="ti">Cédula de Extranjería (CE)</option>
+            </select><br><br>
+
+            <!-- Número de Cuenta -->
+            <label for="numero_cuenta">Número de Cuenta:</label>
+            <input type="text" name="numero_cuenta" id="numero_cuenta" required><br><br>
+
+            <!-- Número de Documento -->
+            <label for="numero_documento">Número de Documento:</label>
+            <input type="text" name="numero_documento" id="numero_documento" required><br><br>
+
+            <!-- Saldo Inicial -->
+            <label for="saldo_inicial">Saldo Inicial:</label>
+            <input type="number" name="saldo_inicial" id="saldo_inicial" step="0.01" min="0" required><br><br>
+
+            <!-- Número Telefónico -->
+            <label for="numero_telefono">Número Telefónico:</label>
+            <input type="tel" name="numero_telefono" id="numero_telefono" required placeholder="Ejemplo: +34 912 345 678"><br><br>
+
+            <!-- Botón de Envío -->
+            <button type="submit">Crear cuenta</button>
+        </form>
+        <p>{{ mensaje }}</p> <!-- Mensaje de éxito o error -->
+
+        <!-- Enlace a la página de inicio de sesión -->
+        <p>¿Ya tienes cuenta? <a class="btn-link" href="{{ url_for('iniciar_sesion') }}">Iniciar Sesión</a></p>
+        
+        <!-- Nuevo botón para redirigir a la bienvenida -->
+        <br><br>
+        <button onclick="window.location.href='{{ url_for('home') }}'">Volver a Bienvenida</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 <strong>Signa-Code</strong>. Todos los derechos reservados.</p>
+            <p>Aplicativo bancario móvil para la gestión segura y eficiente de tus finanzas.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+
+</body>
+</html>

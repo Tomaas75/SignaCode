@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/saldo.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="static/css/imagenes/icono.ico" type="image/x-icon">
+    <title>Consultar Saldo</title>
+</head>
+<body class="galactic-background">
+
+    <div class="transaction-container">
+        <h2 class="transaction-header">Tu saldo actual es: ${{ saldo }}</h2>
+        <a href="{{ url_for('bienvenida') }}" class="golden-button">Volver a la Bienvenida</a>
+    </div>
+
+    <footer class="space-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 <strong>Signa-Code</strong>. Todos los derechos reservados.</p>
+            <p>Aplicativo bancario móvil para la gestión segura y eficiente de tus finanzas.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+
+
+</body>
+</html>
